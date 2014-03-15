@@ -7,8 +7,8 @@
 		
 		function login(){
 			$this->load->model('member','mb');
-			$this->form_validation->set_rules('email', 'Email', 'required[member.email]');
-			$this->form_validation->set_rules('password', 'Password', 'required[member.password]');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+			$this->form_validation->set_rules('password', 'Password', 'required');
 			
 			
 			
@@ -20,8 +20,7 @@
 
 				$data['object'] = $this->mb->check_by_email_password($email,$password);
 				if($data['object']){
-					$data['message'] = 'Email And Password Is correct..';
-					redirect('core/memberpage',$data);
+					redirect('admin');
 				}
 				
 					$data['message'] = 'Email Or Password is Incorrect.';	
