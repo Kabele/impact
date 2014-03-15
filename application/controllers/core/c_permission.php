@@ -104,7 +104,7 @@
 			else
 			{
 			   $data['message'] = 'No modules exits. Create modules to create permission.';
-			   redirect('core/module/add',$data);
+			   redirect('core/c_module/add',$data);
 			}
 			
 				
