@@ -20,9 +20,15 @@ class Hotel_reservation extends CI_Model{
 			return false;
 		}
 		
+		function find_by_hotel_regevent($erid, $ehid){
+			$resultset = $this->db->get_where(self::$tablename,array('eventreg_id'=>$erid, 'eventhotel_id'=>$ehid));
+			return $resultset->result(get_class($this));
+		}
+		
 		function find_all(){
 			$resultset = $this->db->get(self::$tablename);
-			return $resultset->result(get_class($this));
+		return $resultset->result(get_class($this));
+		
 		}
 		
 		function save(){
