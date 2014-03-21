@@ -64,14 +64,14 @@
 			
 		}
 		
-		function viewall($eid){
-		$this->load->model('event','ev');
+		function viewall(){
+		/*$this->load->model('event','ev');
 			$data['event'] = $this->ev->find_by_id($eid);
 			if(!$data['event'])
-				redirect('core/c_event/viewall');
+				redirect('core/c_event/viewall');*/
 				
 			$this->load->model('event_hotel','mb');
-			$data['objects'] = $this->mb->find_all_by_event($eid);
+			$data['objects'] = $this->mb->find_all();
 			if(!empty($data['objects']))
 			{
 				$this->load->view('core/event_hotel/viewall',$data);

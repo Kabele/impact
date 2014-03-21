@@ -54,8 +54,8 @@
 				if ($this->form_validation->run() == TRUE){
 					
 					$this->mb->eventreg_id = $id;
-					$this->mb->event_id = $data[event_registration]->event_id;
-					$this->mb->alumni_id = $data[alumni_info]->alumni_id;
+					$this->mb->event_id = $data['event_registration']->event_id;
+					$this->mb->alumni_id = $data['event_registration']->alumni_id;
 					$this->mb->status = $_POST['status'];
 					$this->mb->accomodation = $_POST['accomodation'];
 					$this->mb->family_member = $_POST['family_member'];
@@ -77,17 +77,17 @@
 			
 		}
 		
-		function viewall($aid, $eid){
-			$this->load->model('alumni_info','av');
+		function viewall(){
+			/*$this->load->model('alumni_info','av');
 			$data['alumni_info'] = $this->av->find_by_id($aid);
 		
 			$this->load->model('event','ev');
 			$data['event'] = $this->ev->find_by_id($eid);
 			if(!$data['alumni_info'] && !$data['event'])
-				redirect('core/c_event/viewall');
+				redirect('core/c_event/viewall');*/
 				
 			$this->load->model('event_registration','mb');
-			$data['objects'] = $this->mb->find_all_by_alumni_event($aid, $eid);
+			$data['objects'] = $this->mb->find_all();
 			if(!empty($data['objects']))
 			{
 				$this->load->view('core/event_registration/viewall',$data);
