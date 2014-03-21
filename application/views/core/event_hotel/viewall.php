@@ -4,7 +4,7 @@
 </head>
 <body>
 	<h2>All Hotels</h2>
-	<p>Showing all hotels for <?php echo $event->event_name; ?></p>
+	<p>Showing all hotels </p>
 	<?php if(isset($message)&&$message!='') echo "<span class=\"message\">{$message}</span>"; ?>
 	<p>Found <strong><?php echo count($objects); ?></strong> objects</p>
 	<table border="1" class="datatable">
