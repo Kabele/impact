@@ -24,7 +24,6 @@
 			}
 			
 			$this->load->view('core/event/add',$data);
-			
 		}
 		
 		function edit($id){
