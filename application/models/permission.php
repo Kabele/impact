@@ -7,6 +7,17 @@ class Permission extends CI_Model{
 			
 		static $tablename = 'permission';
 		static $tableid = 'permission_id';
+		
+		function check_by_roleid_and_moduleid($role_id,$module_id){
+			$resultset=$this->db->get_where(self::$tablename,array('role_id'=>$role_id,'module_id'=>$module_id),1);
+			if($resultset->num_rows()==1)
+				return TRUE;
+			else
+				return FALSE;
+		
+		}
+
+
 		function find_by_id($id){
 			$tableid = self::$tableid;
 			$resultset = $this->db->get_where(self::$tablename,array($tableid=>$id),1);
