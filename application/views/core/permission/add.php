@@ -11,7 +11,7 @@
 	<form action="<?php echo site_url('core/c_permission/add'); ?>" method="POST" id="permission_add">
 		<table class="formtable">
 			
-			<tr><td>Role</td>
+			<tr><td>Role</td><td>&nbsp;</td>
 			<td>
 			<SELECT NAME="role_id">
             <?php
@@ -22,7 +22,7 @@
 			?>
 			</SELECT>
             </td></tr>
-			<tr><td>Module</td>
+			<tr><td>Module</td><td>&nbsp;</td>
             <td>
 			<SELECT NAME="module_id">
             <?php
@@ -32,8 +32,8 @@
 			}
 			?>
 			</SELECT>
-            </td></tr>  
-
+            </td></tr>  </table>
+			<br><br><br>
 			<tr><td>&nbsp;</td><td><input type="submit" name="submit" value="Add" class="submitbutton"></td></tr>
 		</table>
 	</form>

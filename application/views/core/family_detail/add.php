@@ -7,8 +7,22 @@
 	<?php if(isset($message)&&$message!='') echo "<span class=\"message\">{$message}</span>"; ?>
 	<form action="<?php echo site_url('core/c_family_detail/add/'.$alumni_info->alumni_id); ?>" method="POST" id="family_detail_add">
 		<table class="formtable">
-		
-			<tr><td>Relation Id</td><td><input type="text" name="relation_id" class="textbox"></td></tr>
+		 
+		      
+			<tr><td>Relation </td><td>
+			 <SELECT NAME="relation_id">
+			 
+			 <?php
+			foreach($relations as $row)
+			{
+			echo "<OPTION value='{$row->relation_id}'>{$row->relation_name}</OPTION>";
+			}
+			?>
+			 
+			</SELECT></td></tr>
+            
+            
+			 
 			
 			<tr><td>Name of Member</td><td><input type="text" name="name_of_member" name="name_of_member" class="textbox"></td></tr>
 			

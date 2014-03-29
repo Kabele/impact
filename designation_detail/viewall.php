@@ -17,7 +17,7 @@
 			$deleteurl = site_url('core/c_designation_detail/delete/'.$obj->desig_id);
 			$viewurl=site_url('core/c_designation_detail/view/'.$obj->desig_id);
 			echo "<tr><td>{$i}</td><td>{$obj->organization_name}</td><td>{$obj->organization_address}</td><td>{$obj->organization_city}</td><td>{$obj->organization_contact}</td><td>{$obj->website}</td>
-<td>{$obj->organization_department}</td><td>{$obj->position}</td><td>{$obj->from_year}</td><td>{$obj->to_year}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a></td></tr>";
+<td>{$obj->organization_department}</td><td>{$obj->position}</td><td>{$obj->from_year}</td><td>{$obj->to_year}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a>| <a href=\"{$viewurl}\">View</a></td></tr>";
 			$i = $i+1;
 		}
 	?>

@@ -39,7 +39,6 @@
 				$this->form_validation->set_rules('event_datetime', 'Event Datetime', 'required');
 
 				if ($this->form_validation->run() == TRUE){
-					$this->mb->event_id = $_POST['event_id'];
 					$this->mb->event_name = $_POST['event_name'];
 					$this->mb->event_description = $_POST['event_description'];
 					$this->mb->event_datetime = $_POST['event_datetime'];

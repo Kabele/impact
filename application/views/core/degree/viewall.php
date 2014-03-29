@@ -7,7 +7,7 @@
 	<?php if(isset($message)&&$message!='') echo "<span class=\"message\">{$message}</span>"; ?>
 	<p>Found <strong><?php echo count($objects); ?></strong> objects</p>
 	<table border="1" class="datatable">
-	<tr><th>Sr.</th><th>Branch Name</th><th>Action</th></tr>
+	<tr><th>Sr.</th><th>Degree Name</th><th>Action</th></tr>
 	<?php
 		$i = 1;
 		foreach($objects as $obj){

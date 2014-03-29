@@ -5,17 +5,31 @@
 <body>
 	<h2>All Members</h2>
 	<?php if(isset($message)&&$message!='') echo "<span class=\"message\">{$message}</span>"; ?>
-	<p>Found <strong><?php echo count($objects); ?></strong> objects</p>
+	<p>Found <strong><?php echo count($objects);  ?></strong> objects</p>
 	<table border="1" class="datatable">
-	<tr><th>Member Id</th><th>College Id</th><th>Member name</th><th>Branch id</th><th>Year</th><th>Gender</th><th>Date Of Birth</th><th>Contact Number</th><th>Email Id</th><th> Photo</th><th>Event Id</th><th>Position Id</th><th>Committee Id</th><th>Password</th><th>Role Id</th><th>Status</th><th>Degree Id</th><th>Action</th></tr>
+	<tr><th>Member Id</th><th>College Id</th><th>Member Name</th><th>Branch Name</th><th>Year</th><th>Gender</th> <th>Contact Number</th><th>Email Id</th><th>Event Name</th><th>Position Name</th><th>Committee Name</th> <th>Role Name</th><th>Degree Name</th><th>Action</th></tr>
 	<?php
+	
 		$i = 1;
 		foreach($objects as $obj){
-			
-			
 			$editurl = site_url('core/c_member/edit/'.$obj->member_id);
 			$deleteurl = site_url('core/c_member/delete/'.$obj->member_id);
-			echo "<tr><td>{$i}</td><td>{$obj->college_id}</td><td>{$obj->member_name}</td><td>{$obj->branch_id}</td><td>{$obj->year}</td><td>{$obj->gender}</td><td>{$obj->dob}</td><td>{$obj->contact_no}</td><td>{$obj->email}</td><td> {$obj->photo} </td><td>{$obj->event_id}</td><td>{$obj->position_id}</td><td>{$obj->committee_id}</td><td>{$obj->password}</td><td>{$obj->role_id}</td><td>{$obj->status}</td><td>{$obj->degree_id}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a></td></tr>";
+			$branch_name = $model_branch->find_by_id($obj->branch_id)->branch_name;
+			$event_name = $model_event->find_by_id($obj->event_id)->event_name;
+			$position_name = $model_position->find_by_id($obj->position_id)->position_name;
+			$committee_name=$model_committee->find_by_id($obj->committee_id)->committee_name;
+			$degree_name = $model_degree->find_by_id($obj->degree_id)->degree_name;
+			$role_name=$model_role->find_by_id($obj->role_id)->role_name;
+			
+			if($obj->gender==1)
+			{
+			 $gen="Male";
+			 }
+			 else
+			 {
+			 $gen="Female";
+			 }
+		echo "<tr><td>{$obj->member_id}</td><td>{$obj->college_id}</td><td>{$obj->member_name}</td><td>{$branch_name}</td><td>{$obj->year}</td><td>$gen</td> <td>{$obj->contact_no}</td><td>{$obj->email}</td> <td>{$event_name}</td><td>{$position_name}</td><td>{$committee_name}</td> <td>{$role_name}</td><td>{$degree_name}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a> </td></tr>";
 			
 			 $i = $i+1;
 		}
