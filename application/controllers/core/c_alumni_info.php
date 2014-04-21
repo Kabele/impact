@@ -3,6 +3,7 @@
 		
 		function __construct(){
 			parent::__construct();
+			authenticate(16,$this);
 		}
 		
 		function add(){

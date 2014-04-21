@@ -86,13 +86,13 @@
 			$data['object'] = $this->mb->find_by_id($id);
 			if($data['object']){
 			$this->form_validation->set_rules('college_id', 'College Id', 'required');
-			$this->form_validation->set_rules('member_name', 'Member name', 'alpha[member.member_name]');
+			$this->form_validation->set_rules('member_name', 'Member name', 'required');
 			$this->form_validation->set_rules('branch_id', 'Branch Id', 'required');
-			$this->form_validation->set_rules('year', 'Year', 'required|numeric[member.year]');
+			$this->form_validation->set_rules('year', 'Year', 'required|numeric');
 			$this->form_validation->set_rules('gender', 'Gender', 'required');
 			$this->form_validation->set_rules('dob', 'Date of Birth', 'required');
-			$this->form_validation->set_rules('contact_no', 'Contact Number', 'required|numeric[member.contact_no]');
-			$this->form_validation->set_rules('email', 'Email id', 'required|valid_email[member.email]');
+			$this->form_validation->set_rules('contact_no', 'Contact Number', 'required|numeric');
+			$this->form_validation->set_rules('email', 'Email id', 'required|valid_email');
 			$this->form_validation->set_rules('position_id', 'Position Id', 'required');
 			$this->form_validation->set_rules('committee_id', 'Committee Id', 'required');
 			$this->form_validation->set_rules('password', 'Password', 'required');
@@ -112,7 +112,7 @@
 				$this->mb->dob = $_POST['dob'];
 				$this->mb->contact_no = $_POST['contact_no'];
 				$this->mb->email = $_POST['email'];
-				$this->mb->photo = $_POST['photo'];
+				$this->mb->photo = @$_POST['photo'];
 				$this->mb->event_id = $data['object']->event_id;
 				$this->mb->position_id = $_POST['position_id'];
 				$this->mb->committee_id = $_POST['committee_id'];

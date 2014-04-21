@@ -9,6 +9,7 @@ class Admin extends CI_Controller {
 		
 		$this->template->write_view('scripts','template/scripts');
 		$this->template->write_view('header','template/header');
+		$this->template->write_view('navigation','template/admin_nav');
 		$this->template->write_view('sidebar','template/admin_sidebar');
 		$this->template->write_view('footer','template/footer');
 	}

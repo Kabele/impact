@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 14, 2014 at 11:25 AM
--- Server version: 5.6.12-log
--- PHP Version: 5.4.16
+-- Generation Time: Apr 21, 2014 at 10:32 AM
+-- Server version: 5.5.34
+-- PHP Version: 5.3.10-1ubuntu3.9
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `impact`
 --
-CREATE DATABASE IF NOT EXISTS `impact` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `impact`;
 
 -- --------------------------------------------------------
 
@@ -76,7 +74,14 @@ CREATE TABLE IF NOT EXISTS `branch` (
   `branch_id` int(2) NOT NULL AUTO_INCREMENT,
   `branch_name` varchar(50) NOT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `branch`
+--
+
+INSERT INTO `branch` (`branch_id`, `branch_name`) VALUES
+(7, 'Computer Science and Engineering');
 
 -- --------------------------------------------------------
 
@@ -89,7 +94,14 @@ CREATE TABLE IF NOT EXISTS `committee` (
   `committee_name` varchar(50) NOT NULL,
   PRIMARY KEY (`committee_id`),
   UNIQUE KEY `committee_name` (`committee_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `committee`
+--
+
+INSERT INTO `committee` (`committee_id`, `committee_name`) VALUES
+(4, 'Core Committee');
 
 -- --------------------------------------------------------
 
@@ -101,7 +113,14 @@ CREATE TABLE IF NOT EXISTS `degree` (
   `degree_id` int(2) NOT NULL AUTO_INCREMENT,
   `degree_name` varchar(50) NOT NULL,
   PRIMARY KEY (`degree_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `degree`
+--
+
+INSERT INTO `degree` (`degree_id`, `degree_name`) VALUES
+(2, 'B. Tech.');
 
 -- --------------------------------------------------------
 
@@ -138,7 +157,14 @@ CREATE TABLE IF NOT EXISTS `event` (
   `event_datetime` datetime NOT NULL,
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `event_name` (`event_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `event`
+--
+
+INSERT INTO `event` (`event_id`, `event_name`, `event_description`, `event_datetime`) VALUES
+(5, 'Test Event', 'Test Event', '2014-12-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -154,7 +180,14 @@ CREATE TABLE IF NOT EXISTS `event_hotel` (
   `event_id` int(11) NOT NULL,
   PRIMARY KEY (`eventhotel_id`),
   KEY `event_id` (`event_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `event_hotel`
+--
+
+INSERT INTO `event_hotel` (`eventhotel_id`, `hotel_name`, `hotel_address`, `rooms_available`, `event_id`) VALUES
+(2, 'Grace Inn', 'Rajapeth, Near Police Station, Amravati', 5, 5);
 
 -- --------------------------------------------------------
 
@@ -245,7 +278,14 @@ CREATE TABLE IF NOT EXISTS `member` (
   KEY `role_index` (`role_id`),
   KEY `branch_id` (`branch_id`),
   KEY `degree_id` (`degree_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+
+--
+-- Dumping data for table `member`
+--
+
+INSERT INTO `member` (`member_id`, `college_id`, `member_name`, `branch_id`, `year`, `gender`, `dob`, `contact_no`, `email`, `photo`, `event_id`, `position_id`, `committee_id`, `password`, `role_id`, `status`, `degree_id`) VALUES
+(16, 11105004, 'Test Account', 7, 2014, 1, '1992-10-10', 0, 'test@example.com', NULL, 5, 3, 4, 'test', 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -257,7 +297,22 @@ CREATE TABLE IF NOT EXISTS `module` (
   `module_id` int(11) NOT NULL AUTO_INCREMENT,
   `module_name` varchar(30) NOT NULL,
   PRIMARY KEY (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+
+--
+-- Dumping data for table `module`
+--
+
+INSERT INTO `module` (`module_id`, `module_name`) VALUES
+(10, 'Event'),
+(11, 'Committee'),
+(12, 'Position'),
+(13, 'Roles'),
+(14, 'Module'),
+(15, 'Permission'),
+(16, 'Alumni'),
+(17, 'Degree'),
+(18, 'Branch');
 
 -- --------------------------------------------------------
 
@@ -289,9 +344,23 @@ CREATE TABLE IF NOT EXISTS `permission` (
   PRIMARY KEY (`permission_id`),
   UNIQUE KEY `r_m_unique` (`role_id`,`module_id`),
   KEY `role_id` (`role_id`),
-  KEY `role_id_2` (`role_id`),
   KEY `module_id` (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+
+--
+-- Dumping data for table `permission`
+--
+
+INSERT INTO `permission` (`permission_id`, `role_id`, `module_id`) VALUES
+(12, 3, 10),
+(13, 3, 11),
+(14, 3, 12),
+(15, 3, 13),
+(16, 3, 14),
+(17, 3, 15),
+(18, 3, 16),
+(19, 3, 17),
+(20, 3, 18);
 
 -- --------------------------------------------------------
 
@@ -305,7 +374,14 @@ CREATE TABLE IF NOT EXISTS `position` (
   `position_description` text NOT NULL,
   PRIMARY KEY (`position_id`),
   UNIQUE KEY `position_name` (`position_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `position`
+--
+
+INSERT INTO `position` (`position_id`, `position_name`, `position_description`) VALUES
+(3, 'Convener', 'Overall Convener');
 
 -- --------------------------------------------------------
 
@@ -331,7 +407,14 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_desc` text NOT NULL,
   PRIMARY KEY (`role_id`),
   UNIQUE KEY `role_name` (`role_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`role_id`, `role_name`, `role_desc`) VALUES
+(3, 'Admin', 'Admin User');
 
 --
 -- Constraints for dumped tables
@@ -393,6 +476,13 @@ ALTER TABLE `member`
 --
 ALTER TABLE `other_qualification_detail`
   ADD CONSTRAINT `other_qualification_detail_ibfk_1` FOREIGN KEY (`alumni_id`) REFERENCES `alumni_info` (`alumni_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `permission`
+--
+ALTER TABLE `permission`
+  ADD CONSTRAINT `permission_ibfk_2` FOREIGN KEY (`module_id`) REFERENCES `module` (`module_id`),
+  ADD CONSTRAINT `permission_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`role_id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -1,1 +1,1 @@
-<a href="" class="navlink">Account</a><a href="<?php echo site_url('core/c_account/logout');?>" class="navlink">Logout</a>
+<a href="" class="navlink">Account</a>&nbsp;&nbsp;&nbsp;<a href="<?php echo site_url('core/c_account/logout');?>" class="navlink">Logout</a>
