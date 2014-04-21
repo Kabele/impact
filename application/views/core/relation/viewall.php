@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>All Branches</title>
+<title>All Relations</title>
 </head>
 <body>
 	<h2>All Relations</h2>

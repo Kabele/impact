@@ -76,26 +76,11 @@
 			
 		}
 		
-		function viewall($erid=-1, $ehid=-1){
-			$this->load->model('event_hotel','eh');
-			$data['event_hotel'] = $this->eh->find_by_id($ehid);
+		function viewall(){
 			
-			
-		
-			$this->load->model('event_registration','ev');
-			$data['event_registration'] = $this->ev->find_by_id($erid);
-			
-			
-			/*
-			if(!$data['event_hotel'])
-				redirect('core/c_event_hotel/viewall');
-			if( !$data['event_registration']);
-				redirect('core/c_event_hotel/viewall');
-				*/
 			$this->load->model('hotel_reservation','mb');
-			$data['objects'] = $this->mb->find_by_hotel_regevent($erid, $ehid);
+			$data['objects'] = $this->mb->find_all();
 			
-			//$data['objects'] = $this->mb->find_all();
 			if(!empty($data['objects']))
 			{
 				$this->load->view('core/hotel_reservation/viewall',$data);

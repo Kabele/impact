@@ -14,7 +14,7 @@
 			$editurl = site_url('core/c_other_qualification_detail/edit/'.$obj->oq_id);
 			$deleteurl = site_url('core/c_other_qualification_detail/delete/'.$obj->oq_id);
 			$viewurl=site_url('core/c_other_qualification_detail/view/'.$obj->oq_id);
-			echo "<tr><td>{$i}</td><td>{$obj->name_of_institute}</td><td>{$obj->course}</td><td>{$obj->year_of_passing}</td><td>{$obj->extras}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a> </tr>";
+			echo "<tr><td>{$i}</td><td>{$obj->name_of_institute}</td><td>{$obj->course}</td><td>{$obj->year_of_passing}</td><td>{$obj->extras}</td><td><a href=\"{$editurl}\">Edit</a> | <a href=\"{$deleteurl}\" class=\"deletelink\">Delete</a> | <a href=\"{$viewurl}\">View</a></td></tr>";
 			$i = $i+1;
 		}
 	?>

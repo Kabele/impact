@@ -15,7 +15,7 @@
 				$this->mb->committee_name = $_POST['committee_name'];
 				$this->mb->save();
 				
-				$data['message'] = 'committee created successfully';
+				$data['message'] = 'Committee created successfully';
 			}
 			
 			$this->load->view('core/committee/add',$data);
@@ -34,7 +34,6 @@
 				$this->form_validation->set_rules('committee_name', 'Committee Name', 'required|is_unique[committee.committee_name]');
 				
 				if ($this->form_validation->run() == TRUE){
-					$this->mb->committee_id = $_POST['committee_id'];
 					$this->mb->committee_name = $_POST['committee_name'];
 					$this->mb->save();
 					

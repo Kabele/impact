@@ -16,10 +16,8 @@
 			$this->form_validation->set_rules('hotel_address', 'Hotel Address', 'required[event_hotel.hotel_address]');
 			$this->form_validation->set_rules('rooms_available', 'Rooms Available', 'required[event_hotel.rooms_available]');
 			
-			
 			$data['message'] = '';
-			
-			if ($this->form_validation->run() == TRUE){
+				if ($this->form_validation->run() == TRUE){
 				$this->mb->event_id = $eid;
 				$this->mb->hotel_name = $_POST['hotel_name'];
 				$this->mb->hotel_address = $_POST['hotel_address'];

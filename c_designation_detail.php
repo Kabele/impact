@@ -41,7 +41,7 @@
 
 				$this->mb->save();
 				
-				$data['message'] = 'Detail sumbited successfully';
+				$data['message'] = 'Detail sumbit successfully';
 			}
 			
 			$this->load->view('core/designation_detail/add',$data);
@@ -137,7 +137,37 @@ function view($id){
 					$data['object'] = $this->mb;
 						
 				$this->load->view('core/designation_detail/view',$data);
-			}
+			
+			
+			
+		}
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		function delete($id){
 			$this->load->model('designation_detail','mb');
 			$this->mb = $this->mb->find_by_id($id);
